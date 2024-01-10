@@ -9,7 +9,7 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
   ArticleBloc({required this.articleRepository}) : super(ArticlesInitial()) {
     on<FetchArticles>(_onFetchArticles);
     on<AddArticle>(_onAddArticle);
-    //on<FetchArticleByID>(_onFetchArticleById);
+    
   }
 
   void _onFetchArticles(FetchArticles event, Emitter<ArticleState> emit) async {
@@ -36,17 +36,5 @@ class ArticleBloc extends Bloc<ArticleEvent, ArticleState> {
     }
   }
 
-  /*_onFetchArticleById(
-      FetchArticleByID event, Emitter<ArticleState> emit) async {
-    emit(ArticlesLoading());
-
-    try {
-      final article = await articleRepository.fetchBlog(event.id);
-      emit(
-        ArticlesLoaded(blogs: article as List<Blog>),
-      );
-    } catch (e) {
-      emit(ArticlesError());
-    }
-  }*/
+ 
 }
